@@ -4,7 +4,7 @@ Tired of not having any teammates in this Game to fight a boss? Easy Solution. B
 
 [![](https://res.cloudinary.com/marcomontalbano/image/upload/v1609086121/video_to_markdown/images/streamable--jeqbi5-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://streamable.com/jeqbi5 "")
 
-This Tool got made in a couple of hours. It is in an early stage and is not optimized. Feel free to grab some code partions. I am pretty sure some will copy the Multibox thing, because that alone makes the life easier for so many people playing this game. Having more than 1 Game Instance opened. I would love to see ideas contributed to this POC though as everything merged makes the end product better. And I am not creative enough to come up with features.
+This Tool got made in a couple of hours. It is in an early stage and is not optimized. Feel free to grab some code partions. I am pretty sure some will copy the Multibox thing, because that alone makes the life easier for so many people playing this game. Having more than 1 Game Instance opened. I would love to see ideas contributed to this POC though as everything merged makes the end product better. And I am not creative enough to come up with neat features.
 ## Features it already got:
 - Multibox Bypass
 - Walk to your Main Character (your "bots" will attack if you are lucky enough when you attack a monster, because they try to walk to where you want to walk).
@@ -18,3 +18,5 @@ This Tool got made in a couple of hours. It is in an early stage and is not opti
 
 ## Already known Issues:
 - Interception Sections are Buggy af. The "Bots" will reenter the previous Room and walk to where you would technically stand based on the coords they calculate with. You will need to manually intefer. Don't close the program. Just spam until it switches to the right room and walk a few tiles aways. Then it will get to you on it's own.
+
+Possible Fix: There is a flag when you enter such a zone. If I check for it, then determine which side I entered the current room from, I could make them walk a few tiles to the center. This should solve the problem. But it really is a ghetto way to solve it. I am open for Ideas.
