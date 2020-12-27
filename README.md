@@ -8,6 +8,8 @@ This Tool got made in a couple of hours. It is in an early stage and is not opti
 
 Here are the used Pointers by the way to copy-paste, as I am not sure when I will be able to clean the code to make it a whole Repository worth:
 
+*Maybe worth mentioning that those aren't from the steam version, they might work tho on the steam one. If they don't. get the official Windows Client from here: https://warspear-online.com/*
+
 **Memory.dll String Format Pointers:**
 ```
 Current HP:       warspear.exe+0x005A8BF8,0,10,D4,4,B8,4C,9C    [Type: 4 Bytes]
