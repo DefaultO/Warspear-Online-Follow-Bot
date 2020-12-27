@@ -2,6 +2,8 @@
 # Warspear Online Follow Bot
 Tired of not having any teammates in this Game to fight a boss? Easy Solution. Be your own Team! This Project is all you need to take quest bosses down. Esspecially here, because you only need 1 Tank Class, 1 Damage Class and a few Healers. See Below.
 
+### Note: You will need multiple accounts to play multiple characters. They only allow one character per account to be online! This Tool makes it possible tho to run multiple game instances. Means you only need one semi-good PC (1 warspear opened is 120MB of RAM) to run all your accounts!
+
 [![](https://res.cloudinary.com/marcomontalbano/image/upload/v1609086121/video_to_markdown/images/streamable--jeqbi5-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://streamable.com/jeqbi5 "")
 
 This Tool got made in a couple of hours and attacks a problem a lot of new players have - not having any mates and not being interested to beg in the chat for someone to help you or get lucky and meet someone who needs to do the same boss. It is in an early stage and is not optimized. Feel free to grab some code partions. I am pretty sure some will copy the Multibox thing, because that alone makes the life easier for so many people playing this game. Having more than 1 Game Instance opened. I would love to see ideas contributed to this POC though as everything merged makes the end-user-experience better. And I am not creative enough to come up with neat features.
