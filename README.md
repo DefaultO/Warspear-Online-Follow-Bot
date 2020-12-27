@@ -4,7 +4,7 @@ Tired of not having any teammates in this Game to fight a boss? Easy Solution. B
 
 [![](https://res.cloudinary.com/marcomontalbano/image/upload/v1609086121/video_to_markdown/images/streamable--jeqbi5-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://streamable.com/jeqbi5 "")
 
-This Tool got made in a couple of hours. It is in an early stage and is not optimized. Feel free to grab some code partions. I am pretty sure some will copy the Multibox thing, because that alone makes the life easier for so many people playing this game. Having more than 1 Game Instance opened. I would love to see ideas contributed to this POC though as everything merged makes the end product better. And I am not creative enough to come up with neat features.
+This Tool got made in a couple of hours. It is in an early stage and is not optimized. Feel free to grab some code partions. I am pretty sure some will copy the Multibox thing, because that alone makes the life easier for so many people playing this game. Having more than 1 Game Instance opened. I would love to see ideas contributed to this POC though as everything merged makes the end-user-experience better. And I am not creative enough to come up with neat features.
 ## Features it already got:
 - Multibox Bypass
 - Walk to your Main Character (your "bots" will attack if you are lucky enough when you attack a monster, because they try to walk to where you want to walk).
