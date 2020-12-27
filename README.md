@@ -40,4 +40,4 @@ Destination Y:    warspear.exe+0x005A8BF8,0,10,D4,4,B8,4C,B6    [Type: 2 Bytes]
 ## Already known Issues:
 - Interception Sections are Buggy af. The "Bots" will reenter the previous Room and walk to where you would technically stand based on the coords they calculate with. You will need to manually intefer. Don't close the program. Just spam until it switches to the right room and walk a few tiles aways. Then it will get to you on it's own.
 
-Possible Fix: There is a flag when you enter such a zone. If I check for it, then determine which side I entered the current room from, I could make them walk a few tiles to the center. This should solve the problem. But it really is a ghetto way to solve it. I am open for Ideas.
+Possible Fix: There is a flag when you enter such a zone. If I check for it, then determine which side I entered the current room from based on the current coordinates, I could make them walk a few tiles to the center. This should solve the problem. But it really is a ghetto way to solve it. I am open for Ideas.
