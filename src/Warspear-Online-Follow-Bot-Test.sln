@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30406.217
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warspear-Online-Follow-Bot-Test", "Warspear-Online-Follow-Bot-Test\Warspear-Online-Follow-Bot-Test.csproj", "{718DB99D-8E14-467D-953A-10B30253A660}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{718DB99D-8E14-467D-953A-10B30253A660}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{718DB99D-8E14-467D-953A-10B30253A660}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{718DB99D-8E14-467D-953A-10B30253A660}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{718DB99D-8E14-467D-953A-10B30253A660}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {39A19410-87B0-4F80-B3E3-C6923C948266}
+	EndGlobalSection
+EndGlobal
