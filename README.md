@@ -25,6 +25,8 @@ Position Y:       warspear.exe+0x005A8BF8,0,10,D4,4,B8,4C,B2    [Type: 2 Bytes]
 
 Destination X:    warspear.exe+0x005A8BF8,0,10,D4,4,B8,4C,B4    [Type: 2 Bytes]
 Destination Y:    warspear.exe+0x005A8BF8,0,10,D4,4,B8,4C,B6    [Type: 2 Bytes]
+
+... (more got added the more I had time to reverse the game, click on the link below "Pointers in my Format" to find all the ones I could potentionally use)
 ```
 **Pointers in my Format:**
 
