@@ -23,5 +23,19 @@ I had no luck doing so but what my Idea was is to give the rooms some own ID and
 
 What did I do instead? Everyone likes Puzzles, right? I don't like them, I find them boring. But that gave me an Idea. What if you only care about the room you started in to build out the huge map of rooms?
 
-Give the current room you are standing in the ID 1. Enter the Room on the right through the interchange section. That Room has got the ID 2. Go back to the Room with the ID 1. Go to the Room on the left. You are now in the Room with the ID 1, and the original Room with the ID 1 turned into Room ID 2. Hope you can imagine that, I kept it simple and only went Horizontal, as it even gets more complex vertically. 
+Give the current room you are standing in the ID 1.
+| ID: 1    |
+| ---      |
 
+Enter the Room on the right through the interchange section. That Room has got the ID 2.
+| ID: 1    | ID: 2    |
+| ---        | ---          |
+
+Go back to the Room with the ID 1. Go to the Room on the left. You are now in the Room with the ID 1, and the original Room with the ID 1 turned into Room ID 2.
+| ID: 1    | ID: ~~1~~ 2   | ID: ~~2~~ 3   |
+| ---        | ---          | ---          |
+
+Hope you can imagine that, I kept it simple and only went Horizontal, as it even gets more complex vertically. Even if it looks not complex anymore because I added those tables for easier understanding. Coding the logic so that the rooms are dynamic located in a two dimensional list is not simple.
+| ID: 1    | ---      | ID: 2      |
+| ---      | ---      | ---      |
+| **ID: ~~1~~ 3**   | **ID: ~~2~~ 4**  | **ID: ~~3~~ 5**  |
