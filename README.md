@@ -40,6 +40,3 @@ Go back to the Room with the ID 1. Go to the Room on the left. You are now in th
 | ---        | ---          | ---          |
 
 Hope you can imagine that, I kept it simple and only went Horizontal, as it even gets more complex vertically. Even if it looks not complex anymore because I added those tables for easier understanding. Coding the logic so that the rooms are dynamic located in a three dimensional list is not simple. Three dimensional because if you enter caves you go a level down.
-| ID: 1    | ---      | ID: 2      |
-| ---      | ---      | ---      |
-| **ID: ~~1~~ 3**   | **ID: ~~2~~ 4**  | **ID: ~~3~~ 5**  |
