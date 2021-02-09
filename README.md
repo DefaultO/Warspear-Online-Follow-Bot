@@ -2,7 +2,7 @@ Last Version of this Project I was willing to share to everyone for free. If you
 
 Here's the Story though of what I have done without anyone knowing till now. I thought some might learn out of it, to not give up if you can't use the direct path to the solution. Also I don't see many stories about how people reversed/build their logic for their programs. Here's mine.
 
-I had no Gold and couldn't afford amping my Equipment to +10, that's why shortly after the source release I made a couple of Adjustments you could say. I wanted to make a Bot now that earns me some Gold without me doing anything. This is a small write-up on what I had to solve during the development of the (now) private project.
+I had no Gold and couldn't afford amping my Equipment to +10, that's why shortly after the source release, there were made a couple of Adjustments you could say. I wanted to make a Bot now that earns me some Gold without me doing anything. This is a small write-up on what I had to solve during the development of the (now) private project.
 
 The Version you can find on GitHub, already contains my stupid idea (but nice workaround) of looping through the whole map with the cursor and reading out the Cursor Flag of it. I do it this way, because I couldn't find the World Data and Entity List by myself. This Idea had one single disadvantage, it's slow. I had to built-in a forced Sleep between every tile hop because the game doesn't update the Cursor Flag Value that fast. But I mean, if it works, it works, right? <- Don't do this at home. Wrong attitude.
 
@@ -39,7 +39,7 @@ Go back to the Room with the ID 1. Go to the Room on the left. You are now in th
 | ID: 1    | ID: ~~1~~ 2   | ID: ~~2~~ 3   |
 | ---        | ---          | ---          |
 
-Hope you can imagine that, I kept it simple and only went Horizontal, as it even gets more complex vertically. Even if it looks not complex anymore because I added those tables for easier understanding. Coding the logic so that the rooms are dynamic located in a two dimensional list is not simple.
+Hope you can imagine that, I kept it simple and only went Horizontal, as it even gets more complex vertically. Even if it looks not complex anymore because I added those tables for easier understanding. Coding the logic so that the rooms are dynamic located in a three dimensional list is not simple. Three dimensional because if you enter caves you go a level down.
 | ID: 1    | ---      | ID: 2      |
 | ---      | ---      | ---      |
 | **ID: ~~1~~ 3**   | **ID: ~~2~~ 4**  | **ID: ~~3~~ 5**  |
