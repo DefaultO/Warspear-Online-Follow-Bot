@@ -17,7 +17,11 @@ Yes. I unironically have the World Data now. If you have all possible Cursor Fla
 
 Those are the basic Cursor Flags you can get. There are more like 'something you can use' (Hand), 'talk to a NPC' (Several different Icons), 'loading' (Loading Circle), and so on. But this really is enough to know where you can go, and where you can not go.
 
-But how does this help working on a Bot? Well, you can already attack Mobs and know where you can walk to, the in-game path-finding does the rest. But there is still a problem. I don't know which room I am in, means the Bot can't yet know which rooms it has to enter to come to it's destination. What I did was googling and asking around if someone worked with Matrix Anomalies yet. I had no luck doing so but what my Idea was is to give the rooms some own ID and detect a room and the resulting ID with it based on specific Map Layouts. I had to discontinue this Idea because it took too long and there are hardly any writings about the idea of detecting anomalies that are easy to understand and don't require you to have gone to Oxford or something.
+But how does this help working on a Bot? Well, you can already attack Mobs and know where you can walk to, the in-game path-finding does the rest. But there is still a problem. I don't know which room I am in, means the Bot can't yet know which rooms it has to enter to come to it's destination. What I did was googling and asking around if someone worked with Matrix Anomalies yet. Matrix because you can display the World Data as a two dimensional 28x28 Grid giving every small box a number.
 
-What did I do instead?
+I had no luck doing so but what my Idea was is to give the rooms some own ID and detect a room and the resulting ID with it based on specific Map Layouts. I had to discontinue this Idea because it took too long and there are hardly any writings about the idea of detecting anomalies that are easy to understand and don't require you to have gone to Oxford or something.
+
+What did I do instead? Everyone likes Puzzles, right? I don't like them, I find them boring. But that gave me an Idea. What if you only care about the room you started in to build out the huge map of rooms?
+
+Give the current room you are standing in the ID 1. Enter the Room on the right through the interchange section. That Room has got the ID 2. Go back to the Room with the ID 1. Go to the Room on the left. You are now in the Room with the ID 1, and the original Room with the ID 1 turned into Room ID 2. Hope you can imagine that, I kept it simple and only went Horizontal, as it even gets more complex vertically. 
 
