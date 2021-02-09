@@ -23,6 +23,10 @@ I had no luck doing so but what my Idea was is to give the rooms some own ID and
 
 What did I do instead? Everyone likes Puzzles, right? I don't like them, I find them boring. But that gave me an Idea. What if you only care about the room you started in to build out the huge map of rooms?
 
+<p align="center">
+  <img src="https://i.pinimg.com/originals/bf/54/9a/bf549a0cd4c7f2a062167dfa1209b081.gif" width="350" title="hover text">
+</p>
+
 Give the current room you are standing in the ID 1.
 | ID: 1    |
 | ---      |
