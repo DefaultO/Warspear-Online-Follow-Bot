@@ -1,10 +1,20 @@
 Last Version of this Project I was willing to share to everyone for free. If you got more advanced Questions you can reach up to me. I don't play the Support Role for every basic Question though.
 
+
+## My Developing Road afterwards
 Here's the Story though of what I have done without anyone knowing till now. I thought some might learn out of it, to not give up if you can't use the direct path to the solution. Also I don't see many stories about how people reversed/build their logic for their programs. Here's mine.
 
 I had no Gold and couldn't afford amping my Equipment to +10, that's why shortly after the source release, there were made a couple of Adjustments you could say. I wanted to make a Bot now that earns me some Gold without me doing anything. This is a small write-up on what I had to solve during the development of the (now) private project.
 
 The Version you can find on GitHub, already contains my stupid idea (but nice workaround) of looping through the whole map with the cursor and reading out the Cursor Flag of it. I do it this way, because I couldn't find the World Data and Entity List by myself. This Idea had one single disadvantage, it's slow. I had to built-in a forced Sleep between every tile hop because the game doesn't update the Cursor Flag Value that fast. But I mean, if it works, it works, right? <- Don't do this at home. Wrong attitude.
+
+If you want to change the Cursor Position for yourself, but encounter, that the Cursor gets setback. Here's a simple Patch for that one.
+```csharp
+// Original Bytes: 66 89 41 08
+mem.WriteMemory("warspear.exe+0x19708A", "bytes", "90 90 90 90");
+// Original Bytes: 66 89 41 0A
+mem.WriteMemory("warspear.exe+0x1970B1", "bytes", "90 90 90 90");
+```
 
 So what exactly does that mean?
 - World Data
