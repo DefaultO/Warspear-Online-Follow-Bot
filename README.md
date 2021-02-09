@@ -39,4 +39,8 @@ Go back to the Room with the ID 1. Go to the Room on the left. You are now in th
 | ID: 1    | ID: ~~1~~ 2   | ID: ~~2~~ 3   |
 | ---        | ---          | ---          |
 
-Hope you can imagine that, I kept it simple and only went Horizontal, as it even gets more complex vertically. Even if it looks not complex anymore because I added those tables for easier understanding. Coding the logic so that the rooms are dynamic located in a three dimensional list is not simple. Three dimensional because if you enter caves you go a level down.
+Hope you can imagine that, I kept it simple and only went Horizontal, as it even gets more complex vertically. Even if it looks not complex anymore because I added those tables for easier understanding. Coding the logic so that the rooms are dynamic located in a three dimensional list is not simple. Three dimensional because if you enter caves you go a level down. In short you can say that the numbers become bigger from left to right, from top to down and from high to low.
+
+<p align="center">
+  <img src="https://cdn.dribbble.com/users/846207/screenshots/5645189/isometric_cube_animation.gif" width="350" title="hover text">
+</p>
