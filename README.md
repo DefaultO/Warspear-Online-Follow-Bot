@@ -1,7 +1,10 @@
 ### Warspear Online PoC
-#### Updated Pointers for 9.3.3: https://github.com/DefaultO/Warspear-Online-Follow-Bot/blob/main/Warspear-Online-9.3.3.CT
-#### "Tutorial" on how to update the Pointers in case they get outdated again. Or rather me recording on what I did to update the Pointers. https://youtu.be/sLFoqJx4hWk
+##### Updated Pointers for 9.3.3: https://github.com/DefaultO/Warspear-Online-Follow-Bot/blob/main/Warspear-Online-9.3.3.CT
+##### "Tutorial" on how to update the Pointers in case they get outdated again. Or rather me recording on what I did to update the Pointers. https://youtu.be/sLFoqJx4hWk
 
+**There will be made a few changes to this project in the near future. For you, that means, you get some new, better, easier to read code.**
+
+#### Old Readme
 Last Version of this Project I was willing to share to everyone for free. If you got more advanced Questions you can reach up to me. I don't play the Support Role for every basic Question though.
 
 What you probably would want to know is that in order to start another Game Instance, you have to close the Mutex/Mutant Handle ``..\BaseNamedObjects\E49C5EC071B44f14B2`` of the Warspear Process. See: https://github.com/DefaultO/Warspear-Online-Follow-Bot/blob/main/src/Warspear-Online-Follow-Bot-Test/Program.cs#L289
