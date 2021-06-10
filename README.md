@@ -5,6 +5,8 @@
 
 **There will be made a few changes to this project in the near future. For you, that means, you get some new, better, easier to read code.**
 
+---
+
 #### Old Readme
 Last Version of this Project I was willing to share to everyone for free. If you got more advanced Questions you can reach up to me. I don't play the Support Role for every basic Question though.
 
