@@ -95,56 +95,81 @@ namespace Warspear_Online_Bot
                 byte NOP = 0x90; // Byte representing "no operation"
                 if (m.ReadBytes("warspear.exe+1A82FA", 1)[0] != NOP && m.ReadBytes("warspear.exe+1A8321", 1)[0] != NOP)
                 {
-                    m.WriteMemory("warspear.exe+1A82FA", "", "90 90 90 90"); // X
+                    m.WriteMemory("warspear.exe+1A82FA", "bytes", "90 90 90 90"); // X
                     m.WriteMemory("warspear.exe+1A8321", "bytes", "90 90 90 90"); // Y
                 }
 
                 // Setting up Input Class
                 Input.Input.process = m.theProc;
 
+                // Simplest form of caching stuff, till it changes again.
+                string targetAddr = "";
+                bool unchanged = false;
+
                 while (!m.theProc.HasExited)
                 {
-                    foreach (string address in addr)
+                    int nameLength;
+                    byte[] nameAsBytes;
+                    string nameAsString;
+                    // Something got assigned to that var
+                    if (!String.IsNullOrEmpty(targetAddr))
                     {
-                        int nameLength = m.ReadInt($"{address},54");
-                        byte[] nameAsBytes = m.ReadBytes($"{address},58", nameLength * 2);
-                        string nameAsString = Encoding.Unicode.GetString(nameAsBytes);
+                        nameLength = m.ReadInt($"{targetAddr},54");
+                        nameAsBytes = m.ReadBytes($"{targetAddr},58", nameLength * 2);
+                        nameAsString = Encoding.Unicode.GetString(nameAsBytes);
 
-                        if (String.IsNullOrEmpty(nameAsString) || nameAsString != "Uangeu") continue;
-                        int currentHP = m.ReadInt($"{address},F4");
+                        // Reread through all Addresses if name is not equal to the one you set
+                        if (nameAsString == "Uangeu") { unchanged = true; }
+                        else { unchanged = false; }
+                    }
 
-                        // Use heal on your main account when you get lower than a set value
-                        if (currentHP < 1000)
+                    if (!unchanged)
+                    {
+                        foreach (string address in addr)
                         {
-                            /*
-                            (hex)58		entity name
-                            (hex)F4		health
-                            (hex)F8		max health
-                            (hex)FC		mana
-                            (hex)100	max mana
-                            (hex)108	pos x
-                            (hex)10A	pos y
-                            (hex)10C 	des x
-                            (hex)10E 	des y
-                            */
-                            int x = m.Read2Byte($"{address},108");
-                            int y = m.Read2Byte($"{address},10A");
+                            nameLength = m.ReadInt($"{address},54");
+                            nameAsBytes = m.ReadBytes($"{address},58", nameLength * 2);
+                            nameAsString = Encoding.Unicode.GetString(nameAsBytes);
+
+                            if (String.IsNullOrEmpty(nameAsString) || nameAsString != "Uangeu") continue;
+                            // We found our Character in the Entity List, so we can cache the tree node address as the temporary only address to read,
+                            // until the tree changes again and the cached node doesn't contain our name anymore..
+                            targetAddr = address;
+                        }
+                    }
+
+                    // Use heal on your main account when you get lower than a set value
+                    int currentHP = m.ReadInt($"{targetAddr},F4");
+                    if (currentHP < 1000)
+                    {
+                        /*
+                        (hex)58		entity name
+                        (hex)F4		health
+                        (hex)F8		max health
+                        (hex)FC		mana
+                        (hex)100	max mana
+                        (hex)108	pos x
+                        (hex)10A	pos y
+                        (hex)10C 	des x
+                        (hex)10E 	des y
+                        */
+                        int x = m.Read2Byte($"{targetAddr},108");
+                        int y = m.Read2Byte($"{targetAddr},10A");
 
 
-                            // Check if we have enough Mana, my Healing Spirit costs 22 Mana, change this with your Skill Cost.
-                            int skillCost = 22;
-                            if (m.ReadInt("warspear.exe+5F49B8,0,10,D4,4,B8,4C,A4") > skillCost)
-                            {
-                                Input.Input.PressKey(Input.Input.Keys.Two);
+                        // Check if we have enough Mana, my Healing Spirit costs 22 Mana, change this with your Skill Cost.
+                        int skillCost = 22;
+                        if (m.ReadInt("warspear.exe+5F49B8,0,10,D4,4,B8,4C,A4") > skillCost)
+                        {
+                            Input.Input.PressKey(Input.Input.Keys.Two);
 
-                                // You can find writememory types here: https://github.com/erfg12/memory.dll/blob/2f349ae4ebc1c98d681ecf373ebaba6a99148632/Memory/memory.cs#L1059
-                                // Yes, this is retarded when you don't know them and that they are basically equal to the read methods.
-                                // Better would be accepting both, the string (because it's faster to type) and some sort of enum that lists you all options <- or just accept custom types.
-                                m.WriteMemory("warspear.exe+5F0330,24,10,4,21C,8", "2bytes", x.ToString()); // X
-                                m.WriteMemory("warspear.exe+5F0330,24,10,4,21C,A", "2bytes", y.ToString()); // Y
+                            // You can find writememory types here: https://github.com/erfg12/memory.dll/blob/2f349ae4ebc1c98d681ecf373ebaba6a99148632/Memory/memory.cs#L1059
+                            // Yes, this is retarded when you don't know them and that they are basically equal to the read methods.
+                            // Better would be accepting both, the string (because it's faster to type) and some sort of enum that lists you all options <- or just accept custom types.
+                            m.WriteMemory("warspear.exe+5F0330,24,10,4,21C,8", "2bytes", x.ToString()); // X
+                            m.WriteMemory("warspear.exe+5F0330,24,10,4,21C,A", "2bytes", y.ToString()); // Y
 
-                                Input.Input.PressKey(Input.Input.Keys.Enter);
-                            }
+                            Input.Input.PressKey(Input.Input.Keys.Enter);
                         }
                     }
                 }
