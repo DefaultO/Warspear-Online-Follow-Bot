@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 
-namespace Warspear_Online_Follow_Bot_Test
+namespace Input
 {
-    class Movement
+    public class Input
     {
         public enum Keys : int
         {
@@ -61,11 +62,13 @@ namespace Warspear_Online_Follow_Bot_Test
             RShift = 0xA1,
             LControl = 0xA2,
             RControl = 0xA3,
+            NUMLOCK = 0x90,
+            CLEAR = 0x0C,
+            BACKSPACE = 0x08,
 
-            VK_LEFT = 0x25,
-            VK_UP = 0x26,
-            VK_RIGHT = 0x27,
-            VK_DOWN = 0x28
+            F9 = 0x78
+
+
         }
         //InputStatesEnum
         public enum InputState : UInt32
@@ -126,14 +129,17 @@ namespace Warspear_Online_Follow_Bot_Test
         [DllImport("user32.dll")]
         static extern bool SendMessage(IntPtr hWnd, UInt32 Msg, int wParam, int lParam);
 
+        //Main Process
+        public static Process process;
+
         //Press and release desired key defined by time
-        public static void PressKey(IntPtr mainWindowHandle, Keys key, int time = 500)
+        public static void PressKey(Keys key, int time = 500)
         {
-            if (mainWindowHandle != IntPtr.Zero)
+            if (process != null)
             {
-                PostMessage(mainWindowHandle, (UInt32)InputState.WM_KEYDOWN, (int)key, 0);
+                PostMessage(process.MainWindowHandle, (UInt32)InputState.WM_KEYDOWN, (int)key, 0);
                 Thread.Sleep(time);
-                PostMessage(mainWindowHandle, (UInt32)InputState.WM_KEYUP, (int)key, 0);
+                PostMessage(process.MainWindowHandle, (UInt32)InputState.WM_KEYUP, (int)key, 0);
             }
             else
             {
@@ -142,11 +148,11 @@ namespace Warspear_Online_Follow_Bot_Test
         }
 
         //Press key down
-        public static void PressKeyDown(IntPtr mainWindowHandle, Keys key)
+        public static void PressKeyDown(Keys key)
         {
-            if (mainWindowHandle != IntPtr.Zero)
+            if (process != null)
             {
-                PostMessage(mainWindowHandle, (UInt32)InputState.WM_KEYDOWN, (int)key, 0);
+                PostMessage(process.MainWindowHandle, (UInt32)InputState.WM_KEYDOWN, (int)key, 0);
             }
             else
             {
@@ -155,11 +161,11 @@ namespace Warspear_Online_Follow_Bot_Test
         }
 
         //Release Key
-        public static void KeyUp(IntPtr mainWindowHandle, Keys key)
+        public static void KeyUp(Keys key)
         {
-            if (mainWindowHandle != IntPtr.Zero)
+            if (process != null)
             {
-                PostMessage(mainWindowHandle, (UInt32)InputState.WM_KEYUP, (int)key, 0);
+                PostMessage(process.MainWindowHandle, (UInt32)InputState.WM_KEYUP, (int)key, 0);
             }
             else
             {
@@ -168,9 +174,9 @@ namespace Warspear_Online_Follow_Bot_Test
         }
 
         //Type given string...
-        public static void Type(IntPtr mainWindowHandle, string str, int time = 500)
+        public static void Type(string str, int time = 500)
         {
-            if (mainWindowHandle != IntPtr.Zero)
+            if (process != null)
             {
                 foreach (char letter in str)
                 {
@@ -178,55 +184,55 @@ namespace Warspear_Online_Follow_Bot_Test
                     if (char.IsLower(letter))
                     {
                         Keys key = (Keys)Enum.Parse(typeof(Keys), char.ToUpper(letter).ToString());
-                        PressKeyDown(mainWindowHandle, Keys.LShift);
-                        PressKey(mainWindowHandle, key, time);
-                        KeyUp(mainWindowHandle, Keys.LShift);
+                        PressKeyDown(Keys.LShift);
+                        PressKey(key, time);
+                        KeyUp(Keys.LShift);
                     }
                     else if (char.IsUpper(letter))
                     {
                         Keys key = (Keys)Enum.Parse(typeof(Keys), letter.ToString());
-                        PressKey(mainWindowHandle, key, time);
+                        PressKey(key, time);
                     }
                     else if (char.IsDigit(letter))
                     {
                         switch (letter)
                         {
                             case '0':
-                                PressKey(mainWindowHandle, Keys.Cero);
+                                PressKey(Keys.Cero);
                                 break;
                             case '1':
-                                PressKey(mainWindowHandle, Keys.One);
+                                PressKey(Keys.One);
                                 break;
                             case '2':
-                                PressKey(mainWindowHandle, Keys.Two);
+                                PressKey(Keys.Two);
                                 break;
                             case '3':
-                                PressKey(mainWindowHandle, Keys.Three);
+                                PressKey(Keys.Three);
                                 break;
                             case '4':
-                                PressKey(mainWindowHandle, Keys.Four);
+                                PressKey(Keys.Four);
                                 break;
                             case '5':
-                                PressKey(mainWindowHandle, Keys.Five);
+                                PressKey(Keys.Five);
                                 break;
                             case '6':
-                                PressKey(mainWindowHandle, Keys.Six);
+                                PressKey(Keys.Six);
                                 break;
                             case '7':
-                                PressKey(mainWindowHandle, Keys.Seven);
+                                PressKey(Keys.Seven);
                                 break;
                             case '8':
-                                PressKey(mainWindowHandle, Keys.Eight);
+                                PressKey(Keys.Eight);
                                 break;
                             case '9':
-                                PressKey(mainWindowHandle, Keys.Nine);
+                                PressKey(Keys.Nine);
                                 break;
                         }
 
                     }
                     else if (char.IsWhiteSpace(letter))
                     {
-                        PressKey(mainWindowHandle, Keys.Space);
+                        PressKey(Keys.Space);
                     }
                     else
                     {
@@ -241,14 +247,14 @@ namespace Warspear_Online_Follow_Bot_Test
         }
 
         //Release All KEys
-        public static void AllKeysUp(IntPtr mainWindowHandle)
+        public static void AllKeysUp()
         {
-            if (mainWindowHandle != IntPtr.Zero)
+            if (process != null)
             {
                 var values = Enum.GetValues(typeof(Keys)).Cast<Keys>();
                 foreach (var key in values)
                 {
-                    KeyUp(mainWindowHandle, key);
+                    KeyUp(key);
                 }
             }
             else
@@ -258,13 +264,13 @@ namespace Warspear_Online_Follow_Bot_Test
         }
 
         //Click Inputs
-        public static void Click(IntPtr mainWindowHandle, Point position, int time = 500)
+        public static void Click(Point position, int time = 500)
         {
-            if (mainWindowHandle != IntPtr.Zero)
+            if (process != null)
             {
-                PostMessage(mainWindowHandle, (UInt32)InputState.MOUSEEVENTF_LEFTDOWN, 1, position.ToLParam());
+                PostMessage(process.MainWindowHandle, (UInt32)InputState.MOUSEEVENTF_LEFTDOWN, 1, position.ToLParam());
                 Thread.Sleep(time);
-                PostMessage(mainWindowHandle, (UInt32)InputState.MOUSEEVENTF_LEFTUP, 1, position.ToLParam());
+                PostMessage(process.MainWindowHandle, (UInt32)InputState.MOUSEEVENTF_LEFTUP, 1, position.ToLParam());
             }
             else
             {
@@ -272,11 +278,11 @@ namespace Warspear_Online_Follow_Bot_Test
             }
         }
 
-        public static void LeftMouseButtonDown(IntPtr mainWindowHandle, Point position)
+        public static void LeftMouseButtonDown(Point position)
         {
-            if (mainWindowHandle != IntPtr.Zero)
+            if (process != null)
             {
-                PostMessage(mainWindowHandle, (UInt32)InputState.MOUSEEVENTF_LEFTDOWN, 1, position.ToLParam());
+                PostMessage(process.MainWindowHandle, (UInt32)InputState.MOUSEEVENTF_LEFTDOWN, 1, position.ToLParam());
             }
             else
             {
@@ -284,11 +290,11 @@ namespace Warspear_Online_Follow_Bot_Test
             }
         }
 
-        public static void LeftMouseButtonUp(IntPtr mainWindowHandle, Point position)
+        public static void LeftMouseButtonUp(Point position)
         {
-            if (mainWindowHandle != IntPtr.Zero)
+            if (process != null)
             {
-                PostMessage(mainWindowHandle, (UInt32)InputState.MOUSEEVENTF_LEFTUP, 1, position.ToLParam());
+                PostMessage(process.MainWindowHandle, (UInt32)InputState.MOUSEEVENTF_LEFTUP, 1, position.ToLParam());
             }
             else
             {
