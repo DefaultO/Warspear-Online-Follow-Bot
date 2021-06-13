@@ -1,5 +1,7 @@
 ### Warspear Online PoC
 ![image](https://user-images.githubusercontent.com/42414542/121507659-2166a180-c9e5-11eb-9175-829a8678a581.png)
+
+[![CodeFactor](https://www.codefactor.io/repository/github/defaulto/warspear-online-follow-bot/badge/main)](https://www.codefactor.io/repository/github/defaulto/warspear-online-follow-bot/overview/main)
 ##### Updated Pointers for 9.4.0: https://github.com/DefaultO/Warspear-Online-Follow-Bot/blob/main/Warspear-Online-9.4.0.CT
 ##### "Tutorial" on how to update the Pointers in case they get outdated again. Or rather me recording on what I did to update the Pointers. The Description of this Video might help you out too. I commented everything out with timestamps. https://youtu.be/sLFoqJx4hWk
 
